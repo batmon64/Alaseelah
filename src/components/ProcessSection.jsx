@@ -1,9 +1,16 @@
 import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView'
+
+const stepsContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.18, delayChildren: 0.05 } },
+}
+const stepFadeUp = {
+  hidden: { opacity: 0, y: 60, scale: 0.88 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+}
 
 const steps = [
   {
-    number: '01',
     title: 'Sourcing',
     desc: 'Direct procurement from certified farms in India, Pakistan, Turkey, and the UAE ensuring premium quality at origin.',
     icon: <SourcingIcon />,
@@ -11,7 +18,6 @@ const steps = [
     ring: 'ring-blue-200',
   },
   {
-    number: '02',
     title: 'Packaging',
     desc: 'Carefully packed in hygienic, food-safe trays and cartons that protect eggs during handling and transport.',
     icon: <PackagingIcon />,
@@ -19,7 +25,6 @@ const steps = [
     ring: 'ring-sky-200',
   },
   {
-    number: '03',
     title: 'Quality Check',
     desc: 'Rigorous inspection at every stage — candling, weight grading, and safety verification before dispatch.',
     icon: <QualityIcon />,
@@ -27,7 +32,6 @@ const steps = [
     ring: 'ring-indigo-200',
   },
   {
-    number: '04',
     title: 'Delivery',
     desc: 'Swift, refrigerated delivery to your doorstep across all UAE Emirates — always on time, always fresh.',
     icon: <DeliveryIcon />,
@@ -37,13 +41,10 @@ const steps = [
 ]
 
 export default function ProcessSection() {
-  const [ref, inView] = useInView(0.1)
-
   return (
     <section
       id="process"
       className="section-padding relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900"
-      ref={ref}
     >
       {/* BG decoration */}
       <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #38BDF8 0%, transparent 60%)' }} aria-hidden="true" />
@@ -51,9 +52,10 @@ export default function ProcessSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-sky-400 bg-sky-400/10 rounded-full uppercase mb-4 border border-sky-400/20">
             Our Process
@@ -73,13 +75,17 @@ export default function ProcessSection() {
           {/* Connecting line desktop */}
           <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600/0 via-sky-400/50 to-blue-600/0 mx-32" aria-hidden="true" />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            variants={stepsContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.1 }}
+          >
             {steps.map((step, i) => (
               <motion.div
                 key={step.title}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.7, delay: i * 0.18, ease: [0.22, 1, 0.36, 1] }}
+                variants={stepFadeUp}
                 className="flex flex-col items-center text-center"
               >
                 {/* Icon circle */}
@@ -89,13 +95,11 @@ export default function ProcessSection() {
                   className={`relative w-20 h-20 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center text-white shadow-2xl ring-4 ${step.ring} ring-offset-2 ring-offset-slate-900 mb-6 cursor-default`}
                 >
                   {step.icon}
-                  {/* Step number */}
                   <span className="absolute -top-2 -right-2 w-6 h-6 bg-white text-slate-900 text-xs font-bold rounded-full flex items-center justify-center shadow-lg">
                     {i + 1}
                   </span>
                 </motion.div>
 
-                {/* Arrow indicator for mobile */}
                 {i < steps.length - 1 && (
                   <div className="lg:hidden w-px h-8 bg-sky-400/30 mb-2" aria-hidden="true" />
                 )}
@@ -103,24 +107,24 @@ export default function ProcessSection() {
                 <h3 className="text-white font-bold text-xl mb-3">{step.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed max-w-xs">{step.desc}</p>
 
-                {/* Progress dot */}
                 <motion.div
                   className="mt-6 w-2 h-2 rounded-full bg-sky-400"
-                  animate={inView ? { scale: [1, 1.5, 1] } : {}}
+                  animate={{ scale: [1, 1.5, 1] }}
                   transition={{ duration: 2, delay: i * 0.3, repeat: Infinity }}
                   aria-hidden="true"
                 />
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom CTA */}
         <motion.div
           className="mt-16 text-center"
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.5 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <a
             href="https://wa.me/971569454672?text=Hello%2C%20I%27m%20interested%20in%20your%20egg%20supply%20services."

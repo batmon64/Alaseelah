@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView'
 
 const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'
 
@@ -32,7 +31,6 @@ const contactInfo = [
 ]
 
 export default function ContactSection() {
-  const [ref, inView] = useInView(0.1)
   const [form, setForm] = useState({ name: '', phone: '', business: '', requirement: '', message: '' })
   const [status, setStatus] = useState('idle')
 
@@ -56,13 +54,14 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-b from-white to-slate-50" ref={ref}>
+    <section id="contact" className="section-padding bg-gradient-to-b from-white to-slate-50">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-sky-600 bg-sky-50 rounded-full uppercase mb-4 border border-sky-100">
             Get in Touch
@@ -80,9 +79,10 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left — contact info + map */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col gap-6"
           >
             {/* Contact cards */}
@@ -147,9 +147,10 @@ export default function ContactSection() {
 
           {/* Right — form */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="bg-white border border-slate-100 rounded-3xl p-8 shadow-xl shadow-slate-100/80">
               <h3 className="text-xl font-bold text-slate-900 mb-1">Request a Quote</h3>

@@ -1,5 +1,13 @@
 import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView'
+
+const clientContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.13, delayChildren: 0.05 } },
+}
+const clientCard = {
+  hidden: { opacity: 0, y: 60, scale: 0.88 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+}
 
 const clients = [
   {
@@ -41,16 +49,15 @@ const clients = [
 ]
 
 export default function ClientsSection() {
-  const [ref, inView] = useInView(0.1)
-
   return (
-    <section id="clients" className="section-padding bg-white" ref={ref}>
+    <section id="clients" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-sky-600 bg-sky-50 rounded-full uppercase mb-4 border border-sky-100">
             Who We Serve
@@ -66,15 +73,19 @@ export default function ClientsSection() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {clients.map((c, i) => (
+        <motion.div
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={clientContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.1 }}
+        >
+          {clients.map((c) => (
             <motion.div
               key={c.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className={`group ${c.bg} border ${c.border} rounded-3xl p-6 hover:shadow-xl transition-all duration-300 cursor-default`}
+              variants={clientCard}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+              className={`group ${c.bg} border ${c.border} rounded-3xl p-6 hover:shadow-xl transition-shadow duration-300 cursor-default`}
             >
               <div className={`w-14 h-14 bg-gradient-to-br ${c.color} rounded-2xl flex items-center justify-center text-white mb-5 shadow-lg group-hover:scale-110 transition-transform duration-200`}>
                 {c.icon}
@@ -90,19 +101,20 @@ export default function ClientsSection() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Trust belt */}
         <motion.div
           className="mt-16 p-8 bg-gradient-to-br from-slate-900 to-blue-950 rounded-3xl grid sm:grid-cols-3 gap-6 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          initial={{ opacity: 0, y: 40, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: false, amount: 0.4 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           {[
-            { value: 'All 7', label: 'UAE Emirates Covered', icon: '📍' },
-            { value: '24/7', label: 'Order Support', icon: '🕐' },
-            { value: '100%', label: 'Delivery Reliability', icon: '✓' },
+            { value: 'All 7', label: 'UAE Emirates Covered' },
+            { value: '24/7', label: 'Order Support' },
+            { value: '100%', label: 'Delivery Reliability' },
           ].map((stat, i) => (
             <div key={i} className="flex flex-col items-center">
               <p className="text-3xl font-bold text-white mb-1">{stat.value}</p>

@@ -1,5 +1,13 @@
 import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView'
+
+const cardContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.13, delayChildren: 0.05 } },
+}
+const cardItem = {
+  hidden: { opacity: 0, y: 60, scale: 0.88 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+}
 
 const products = [
   {
@@ -53,16 +61,15 @@ const products = [
 ]
 
 export default function ProductsSection() {
-  const [ref, inView] = useInView(0.1)
-
   return (
-    <section id="products" className="section-padding bg-gradient-to-b from-white to-slate-50" ref={ref}>
+    <section id="products" className="section-padding bg-gradient-to-b from-white to-slate-50">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-sky-600 bg-sky-50 rounded-full uppercase mb-4 border border-sky-100">
             Our Products
@@ -77,14 +84,18 @@ export default function ProductsSection() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((p, i) => (
+        <motion.div
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={cardContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.1 }}
+        >
+          {products.map((p) => (
             <motion.div
               key={p.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              variants={cardItem}
+              whileHover={{ y: -8, transition: { duration: 0.25 } }}
               className={`group bg-white border ${p.border} rounded-3xl overflow-hidden shadow-lg ${p.glow} hover:shadow-xl transition-shadow duration-300 cursor-default`}
             >
               {/* Card top */}
@@ -117,7 +128,7 @@ export default function ProductsSection() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

@@ -1,5 +1,13 @@
 import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView'
+
+const cardContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
+}
+const cardItem = {
+  hidden: { opacity: 0, y: 50, scale: 0.88 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+}
 
 const highlights = [
   {
@@ -20,17 +28,16 @@ const highlights = [
 ]
 
 export default function AboutSection() {
-  const [ref, inView] = useInView(0.15)
-
   return (
-    <section id="about" className="section-padding bg-white" ref={ref}>
+    <section id="about" className="section-padding bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left — text */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-sky-600 bg-sky-50 rounded-full uppercase mb-4 border border-sky-100">
               About Us
@@ -66,13 +73,17 @@ export default function AboutSection() {
           </motion.div>
 
           {/* Right — highlight cards */}
-          <div className="flex flex-col gap-5">
-            {highlights.map((h, i) => (
+          <motion.div
+            className="flex flex-col gap-5"
+            variants={cardContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.15 }}
+          >
+            {highlights.map((h) => (
               <motion.div
                 key={h.title}
-                initial={{ opacity: 0, x: 50 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+                variants={cardItem}
                 className="group flex items-start gap-5 p-6 bg-gradient-to-br from-slate-50 to-sky-50 border border-slate-100 rounded-2xl hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/50 transition-all duration-300 cursor-default"
               >
                 <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-blue-500/25 group-hover:scale-110 transition-transform duration-200">
@@ -84,7 +95,7 @@ export default function AboutSection() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

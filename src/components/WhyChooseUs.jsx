@@ -1,5 +1,13 @@
 import { motion } from 'framer-motion'
-import { useInView } from '../hooks/useInView'
+
+const reasonsContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+}
+const reasonItem = {
+  hidden: { opacity: 0, y: 40, scale: 0.9 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
+}
 
 const reasons = [
   {
@@ -41,17 +49,16 @@ const reasons = [
 ]
 
 export default function WhyChooseUs() {
-  const [ref, inView] = useInView(0.1)
-
   return (
-    <section id="why-us" className="section-padding bg-gradient-to-b from-slate-50 to-white" ref={ref}>
+    <section id="why-us" className="section-padding bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left — visual card */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.15 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
             {/* Main card */}
@@ -110,9 +117,10 @@ export default function WhyChooseUs() {
           {/* Right — reasons grid */}
           <div>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
               className="mb-10"
             >
               <span className="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-sky-600 bg-sky-50 rounded-full uppercase mb-4 border border-sky-100">
@@ -128,13 +136,17 @@ export default function WhyChooseUs() {
               </p>
             </motion.div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-              {reasons.map((r, i) => (
+            <motion.div
+              className="grid sm:grid-cols-2 gap-4"
+              variants={reasonsContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.1 }}
+            >
+              {reasons.map((r) => (
                 <motion.div
                   key={r.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  variants={reasonItem}
                   whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
                   className="group flex items-start gap-4 p-4 bg-white border border-slate-100 rounded-2xl hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/50 transition-all duration-200 cursor-default"
                 >
@@ -147,7 +159,7 @@ export default function WhyChooseUs() {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

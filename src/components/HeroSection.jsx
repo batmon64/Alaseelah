@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  show: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] },
-  }),
+const heroContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.16, delayChildren: 0.2 } },
+}
+const heroItem = {
+  hidden: { opacity: 0, y: 60, scale: 0.92 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
 }
 
 export default function HeroSection() {
@@ -34,13 +34,15 @@ export default function HeroSection() {
       {/* Floating Egg Shapes */}
       <FloatingEggs />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
+      <motion.div
+        className="relative z-10 max-w-5xl mx-auto px-4 text-center"
+        variants={heroContainer}
+        initial="hidden"
+        animate="show"
+      >
         {/* Badge */}
         <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          custom={0}
+          variants={heroItem}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-sky-400/30 mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" aria-hidden="true" />
@@ -49,10 +51,7 @@ export default function HeroSection() {
 
         {/* Heading */}
         <motion.h1
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          custom={1}
+          variants={heroItem}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
         >
           Premium Egg Supply<br />
@@ -65,10 +64,7 @@ export default function HeroSection() {
 
         {/* Subtext */}
         <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          custom={2}
+          variants={heroItem}
           className="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Wholesale &amp; retail egg distribution from India, Pakistan, Turkey, and
@@ -78,10 +74,7 @@ export default function HeroSection() {
 
         {/* CTA Buttons */}
         <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          custom={3}
+          variants={heroItem}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
@@ -104,10 +97,7 @@ export default function HeroSection() {
 
         {/* Stats row */}
         <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-          custom={4}
+          variants={heroItem}
           className="mt-16 grid grid-cols-3 gap-4 max-w-xl mx-auto"
         >
           {[
@@ -121,7 +111,7 @@ export default function HeroSection() {
             </div>
           ))}
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Scroll indicator */}
       <motion.div
