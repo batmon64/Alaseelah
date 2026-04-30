@@ -41,19 +41,15 @@ export default function Navbar() {
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center gap-2 cursor-pointer focus:outline-none"
+          className="flex items-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-400 rounded-xl"
           aria-label="Go to top"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-sky-400 flex items-center justify-center shadow-lg shadow-blue-500/30">
-            <EggIcon className="w-5 h-5 text-white" />
-          </div>
-          <div className="leading-none">
-            <p className={`font-bold text-sm tracking-tight transition-colors duration-300 ${scrolled ? 'text-slate-900' : 'text-white'}`}>
-              Al Aseelah
-            </p>
-            <p className={`text-xs transition-colors duration-300 ${scrolled ? 'text-slate-500' : 'text-sky-200'}`}>
-              Foodstuff Trading LLC
-            </p>
+          <div className="bg-white rounded-xl px-1 py-0.5 shadow-md shadow-black/15">
+            <img
+              src="/Images/logo2.png"
+              alt="Al Aseelah Foodstuff Trading LLC"
+              className="h-12 w-auto"
+            />
           </div>
         </button>
 
@@ -138,14 +134,6 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </motion.header>
-  )
-}
-
-function EggIcon({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <ellipse cx="12" cy="13" rx="7" ry="9" />
-    </svg>
   )
 }
 

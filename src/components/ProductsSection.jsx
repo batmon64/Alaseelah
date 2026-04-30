@@ -84,6 +84,30 @@ export default function ProductsSection() {
           </p>
         </motion.div>
 
+        {/* Showcase image — products in stores */}
+        <motion.div
+          className="mb-12 relative rounded-3xl overflow-hidden shadow-xl shadow-slate-300/60 cursor-default"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <img
+            src="/Images/Whisk_e0d4f5aaf30bde39df040b34a841ba54dr.jpeg"
+            alt="Rows of white and brown egg cartons neatly arranged on supermarket shelves across UAE"
+            className="w-full h-56 md:h-72 object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent" />
+          <div className="absolute left-7 md:left-10 top-1/2 -translate-y-1/2">
+            <p className="text-sky-300 text-xs font-semibold tracking-widest uppercase mb-2">Available In</p>
+            <p className="text-white text-2xl md:text-4xl font-bold leading-snug">
+              Leading Supermarkets<br />Across UAE
+            </p>
+            <p className="text-white/65 text-sm mt-2 hidden md:block">White &amp; brown eggs · All grades · All sizes</p>
+          </div>
+        </motion.div>
+
         <motion.div
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={cardContainer}

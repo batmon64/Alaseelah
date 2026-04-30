@@ -21,14 +21,12 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-10 pb-12 border-b border-slate-800">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-sky-400 flex items-center justify-center shadow-lg shadow-blue-500/30">
-                <EggIcon className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="font-bold text-white text-sm">Al Aseelah</p>
-                <p className="text-slate-500 text-xs">Foodstuff Trading LLC</p>
-              </div>
+            <div className="mb-5 inline-block bg-white rounded-xl px-2 py-1 shadow-md shadow-black/20">
+              <img
+                src="/Images/logo2.png"
+                alt="Al Aseelah Foodstuff Trading LLC"
+                className="h-14 w-auto"
+              />
             </div>
             <p className="text-sm leading-relaxed text-slate-500 max-w-xs">
               UAE's trusted egg supplier — importing from India, Pakistan &amp; Turkey,
@@ -85,7 +83,14 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <LocationIcon className="w-4 h-4 text-sky-500 flex-shrink-0 mt-0.5" />
-                <span className="text-slate-500">Old Sanaya, Umm Al Quwain, UAE</span>
+                <a
+                  href="https://www.google.com/maps?q=Al+ASEELAH+FOODSTUFF+TRADING+LLC&ftid=0x3ef5f9246c6e674b:0x2049f98f7aa246ee"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-500 hover:text-sky-400 transition-colors duration-150 cursor-pointer"
+                >
+                  Al Muqta, Umm Al Quwain, UAE
+                </a>
               </li>
               <li>
                 <a href="tel:+971569454672" className="flex items-center gap-3 text-slate-500 hover:text-sky-400 transition-colors duration-150 cursor-pointer">
@@ -118,18 +123,10 @@ export default function Footer() {
         {/* Bottom */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
           <p>&copy; {new Date().getFullYear()} Al Aseelah Foodstuff Trading LLC. All rights reserved.</p>
-          <p>Old Sanaya, Umm Al Quwain, UAE &mdash; Delivery across all Emirates</p>
+          <p>Al Muqta, Umm Al Quwain, UAE &mdash; Delivery across all Emirates</p>
         </div>
       </div>
     </footer>
-  )
-}
-
-function EggIcon({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <ellipse cx="12" cy="13" rx="7" ry="9" />
-    </svg>
   )
 }
 

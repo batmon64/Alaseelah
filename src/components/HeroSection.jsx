@@ -16,7 +16,7 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-sky-900">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-sky-900 pt-20 pb-8">
       {/* Background grid */}
       <div
         className="absolute inset-0 opacity-10"
@@ -43,21 +43,45 @@ export default function HeroSection() {
         {/* Badge */}
         <motion.div
           variants={heroItem}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-sky-400/30 mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-dark border border-sky-400/30 mb-6"
         >
           <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" aria-hidden="true" />
           <span className="text-sky-300 text-sm font-medium tracking-wide">UAE's Trusted Egg Supplier</span>
         </motion.div>
 
+        {/* Company Name — prominently highlighted */}
+        <motion.div variants={heroItem} className="mb-6">
+          <div className="inline-block px-7 py-4 rounded-2xl ring-1 ring-amber-400/40 bg-amber-500/8 shadow-lg shadow-amber-500/10">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-none mb-1"
+              style={{
+                background: 'linear-gradient(135deg, #F59E0B, #FCD34D, #FBBF24)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Al Aseelah
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl font-semibold tracking-[0.25em] text-white/65 uppercase mt-2">
+              Foodstuff Trading LLC
+            </p>
+          </div>
+          <div className="mt-4 mx-auto flex items-center justify-center gap-3">
+            <div className="h-px w-24 bg-gradient-to-r from-transparent to-amber-400/50" />
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400/80" />
+            <div className="h-px w-24 bg-gradient-to-l from-transparent to-amber-400/50" />
+          </div>
+        </motion.div>
+
         {/* Heading */}
         <motion.h1
           variants={heroItem}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
         >
           Premium Egg Supply<br />
           <span className="text-gradient">&amp; Distribution</span>
           <br />
-          <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-sky-200">
+          <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-sky-200">
             Across All UAE Emirates
           </span>
         </motion.h1>
@@ -88,7 +112,7 @@ export default function HeroSection() {
           </a>
           <button
             onClick={() => handleNav('#contact')}
-            className="flex items-center gap-3 px-8 py-4 glass border border-white/30 text-white font-bold rounded-2xl hover:bg-white/20 hover:scale-105 transition-all duration-200 cursor-pointer text-lg"
+            className="flex items-center gap-3 px-8 py-4 bg-blue-800 border border-blue-600 text-white font-bold rounded-2xl shadow-xl shadow-blue-900/50 hover:bg-blue-700 hover:scale-105 transition-all duration-200 cursor-pointer text-lg"
           >
             <QuoteIcon className="w-6 h-6" />
             Get a Quote

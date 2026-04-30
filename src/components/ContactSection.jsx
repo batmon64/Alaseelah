@@ -19,8 +19,8 @@ const contactInfo = [
   {
     icon: <LocationIcon />,
     label: 'Address',
-    lines: ['Old Sanaya, Umm Al Quwain', 'United Arab Emirates'],
-    href: null,
+    lines: ['Al Muqta, Umm Al Quwain', 'United Arab Emirates'],
+    href: 'https://www.google.com/maps?q=Al+ASEELAH+FOODSTUFF+TRADING+LLC&ftid=0x3ef5f9246c6e674b:0x2049f98f7aa246ee',
   },
   {
     icon: <GlobeIcon />,
@@ -101,6 +101,8 @@ export default function ContactSection() {
                       <a
                         key={line}
                         href={c.href}
+                        target={c.href.startsWith('http') && !c.href.startsWith('mailto') && !c.href.startsWith('tel') ? '_blank' : undefined}
+                        rel={c.href.startsWith('http') && !c.href.startsWith('mailto') && !c.href.startsWith('tel') ? 'noopener noreferrer' : undefined}
                         className="block text-slate-900 font-semibold text-sm hover:text-sky-600 transition-colors duration-150 cursor-pointer"
                       >
                         {line}
@@ -133,14 +135,14 @@ export default function ContactSection() {
             {/* Map */}
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md h-56">
               <iframe
-                src="https://maps.google.com/maps?q=Old+Sanaya+Umm+Al+Quwain+UAE&output=embed"
+                src="https://www.google.com/maps?q=Al+ASEELAH+FOODSTUFF+TRADING+LLC&ftid=0x3ef5f9246c6e674b:0x2049f98f7aa246ee&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Al Aseelah location map"
+                title="Al Aseelah Foodstuff Trading LLC location map — Al Muqta, Umm Al Quwain"
               />
             </div>
           </motion.div>

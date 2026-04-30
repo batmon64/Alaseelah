@@ -118,6 +118,44 @@ export default function ProcessSection() {
           </motion.div>
         </div>
 
+        {/* Photo strip — process in action */}
+        <motion.div
+          className="mt-14 grid md:grid-cols-2 gap-5"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {[
+            {
+              src: '/Images/Whisk_809a16abd805368981148ec0b93d3c90dr.jpeg',
+              alt: 'Workers in high-visibility vests packaging egg cartons on a warehouse conveyor belt',
+              label: 'Packaging & Dispatch',
+              sub: 'Modern warehouse operations',
+            },
+            {
+              src: '/Images/Whisk_73054e467cbe56aa5964893a8da2f9bfeg.png',
+              alt: 'Al Aseelah delivery person handing a tray of eggs to a smiling store owner',
+              label: 'Direct Store Delivery',
+              sub: 'Last-mile service to every business',
+            },
+          ].map((photo) => (
+            <div key={photo.label} className="relative rounded-2xl overflow-hidden shadow-lg shadow-black/30">
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className="w-full h-60 object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-slate-900/20 to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <p className="text-white font-bold text-base">{photo.label}</p>
+                <p className="text-slate-300 text-xs mt-0.5">{photo.sub}</p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
         {/* Bottom CTA */}
         <motion.div
           className="mt-16 text-center"

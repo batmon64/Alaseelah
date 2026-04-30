@@ -3,6 +3,7 @@ import HeroSection from './components/HeroSection'
 import AboutSection from './components/AboutSection'
 import ProductsSection from './components/ProductsSection'
 import ProcessSection from './components/ProcessSection'
+import QualityShowcaseSection from './components/QualityShowcaseSection'
 import ClientsSection from './components/ClientsSection'
 import WhyChooseUs from './components/WhyChooseUs'
 import ContactSection from './components/ContactSection'
@@ -17,6 +18,7 @@ export default function App() {
       <AboutSection />
       <ProductsSection />
       <ProcessSection />
+      <QualityShowcaseSection />
       <ClientsSection />
       <WhyChooseUs />
       <ContactSection />
