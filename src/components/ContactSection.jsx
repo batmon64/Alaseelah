@@ -240,7 +240,7 @@ export default function ContactSection() {
                       className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150 cursor-pointer appearance-none"
                     >
                       <option value="">Select requirement</option>
-                      <option value="imported-eggs">Imported Eggs (India/Pakistan/Turkey)</option>
+                      <option value="imported-eggs">Imported Eggs (India/Pakistan/Turkey/Saudi Arabia)</option>
                       <option value="uae-fresh-eggs">Fresh UAE Eggs</option>
                       <option value="bulk-wholesale">Bulk / Wholesale Order</option>
                       <option value="regular-supply">Regular Supply Contract</option>

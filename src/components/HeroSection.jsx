@@ -91,7 +91,7 @@ export default function HeroSection() {
           variants={heroItem}
           className="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Wholesale &amp; retail egg distribution from India, Pakistan, Turkey, and
+          Wholesale &amp; retail egg distribution from India, Pakistan, Turkey, Saudi Arabia, and
           fresh UAE farms — delivered to supermarkets, grocery stores, and businesses
           with uncompromising quality.
         </motion.p>
@@ -126,7 +126,7 @@ export default function HeroSection() {
         >
           {[
             { value: '7+', label: 'Emirates Served' },
-            { value: '3', label: 'Import Countries' },
+            { value: '4', label: 'Import Countries' },
             { value: '100%', label: 'Quality Assured' },
           ].map((stat) => (
             <div key={stat.label} className="glass-dark rounded-2xl p-4 border border-white/10">
