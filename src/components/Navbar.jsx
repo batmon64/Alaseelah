@@ -30,7 +30,7 @@ export default function Navbar() {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'glass shadow-lg shadow-slate-900/10'
+          ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-orange-100/60 border-b border-orange-100'
           : 'bg-transparent'
       }`}
       initial={{ y: -80, opacity: 0 }}
@@ -41,7 +41,7 @@ export default function Navbar() {
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-400 rounded-xl"
+          className="flex items-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-400 rounded-xl"
           aria-label="Go to top"
         >
           <div className="bg-white rounded-xl px-1 py-0.5 shadow-md shadow-black/15">
@@ -59,8 +59,10 @@ export default function Navbar() {
             <li key={link.href}>
               <button
                 onClick={() => handleNav(link.href)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 ${
-                  scrolled ? 'text-slate-700 hover:text-sky-600 hover:bg-sky-50' : 'text-white/90 hover:text-white'
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-400 ${
+                  scrolled
+                    ? 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {link.label}
@@ -74,7 +76,7 @@ export default function Navbar() {
           href="https://wa.me/971569454672?text=Hello%2C%20I%27m%20interested%20in%20your%20egg%20supply%20services."
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-sky-500 text-white text-sm font-semibold rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-200 cursor-pointer"
+          className="hidden md:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500 to-rose-500 text-white text-sm font-bold rounded-xl shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105 transition-all duration-200 cursor-pointer"
         >
           <WhatsAppIcon className="w-4 h-4" />
           WhatsApp
@@ -83,8 +85,8 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className={`md:hidden p-2 rounded-lg cursor-pointer transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 ${
-            scrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'
+          className={`md:hidden p-2 rounded-lg cursor-pointer transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400 ${
+            scrolled ? 'text-gray-700 hover:bg-orange-50' : 'text-white hover:bg-white/10'
           }`}
           aria-label="Toggle menu"
         >
@@ -105,14 +107,14 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden glass border-t border-white/20 overflow-hidden"
+            className="md:hidden bg-white border-t border-orange-100 overflow-hidden shadow-xl"
           >
             <ul className="px-4 py-3 flex flex-col gap-1">
               {links.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => handleNav(link.href)}
-                    className="w-full text-left px-4 py-3 rounded-lg text-slate-800 font-medium text-sm hover:bg-sky-50 hover:text-sky-600 transition-colors duration-150 cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-400"
+                    className="w-full text-left px-4 py-3 rounded-xl text-gray-800 font-semibold text-sm hover:bg-orange-50 hover:text-orange-600 transition-colors duration-150 cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-400"
                   >
                     {link.label}
                   </button>
@@ -123,7 +125,7 @@ export default function Navbar() {
                   href="https://wa.me/971569454672?text=Hello%2C%20I%27m%20interested%20in%20your%20egg%20supply%20services."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 mt-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-sky-500 text-white font-semibold rounded-xl cursor-pointer"
+                  className="flex items-center justify-center gap-2 mt-2 px-4 py-3 bg-gradient-to-r from-orange-500 to-rose-500 text-white font-bold rounded-xl cursor-pointer"
                 >
                   <WhatsAppIcon className="w-4 h-4" />
                   Contact on WhatsApp

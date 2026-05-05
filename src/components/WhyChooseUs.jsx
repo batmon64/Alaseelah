@@ -14,44 +14,54 @@ const reasons = [
     title: 'Reliable Supply Chain',
     desc: 'Consistent, uninterrupted supply backed by multiple sourcing countries and local farms.',
     icon: <ChainIcon />,
-    color: 'bg-blue-600',
+    iconBg: 'bg-orange-500',
+    cardHover: 'hover:border-orange-200 hover:shadow-orange-100/60',
   },
   {
     title: 'Fresh & Quality Assured',
     desc: 'Every batch undergoes rigorous quality checks to ensure freshness, safety, and grade compliance.',
     icon: <ShieldIcon />,
-    color: 'bg-sky-600',
+    iconBg: 'bg-emerald-500',
+    cardHover: 'hover:border-emerald-200 hover:shadow-emerald-100/60',
   },
   {
     title: 'Competitive Pricing',
     desc: 'Best market prices with volume discounts and flexible payment terms for business clients.',
     icon: <PriceIcon />,
-    color: 'bg-indigo-600',
+    iconBg: 'bg-rose-500',
+    cardHover: 'hover:border-rose-200 hover:shadow-rose-100/60',
   },
   {
     title: 'Bulk Capability',
     desc: 'Capable of fulfilling large-scale orders for hypermarkets and distribution centers.',
     icon: <BulkIcon />,
-    color: 'bg-cyan-700',
+    iconBg: 'bg-violet-600',
+    cardHover: 'hover:border-violet-200 hover:shadow-violet-100/60',
   },
   {
     title: 'Fast UAE Delivery',
     desc: 'Efficient logistics network ensuring timely delivery across all seven UAE Emirates.',
     icon: <SpeedIcon />,
-    color: 'bg-blue-700',
+    iconBg: 'bg-cyan-600',
+    cardHover: 'hover:border-cyan-200 hover:shadow-cyan-100/60',
   },
   {
     title: 'Hygienic Packaging',
     desc: 'All products packed in food-safe, labelled packaging meeting UAE food safety standards.',
     icon: <PackIcon />,
-    color: 'bg-sky-700',
+    iconBg: 'bg-amber-500',
+    cardHover: 'hover:border-amber-200 hover:shadow-amber-100/60',
   },
 ]
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="section-padding bg-gradient-to-b from-slate-50 to-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="why-us" className="section-padding bg-white relative overflow-hidden">
+      {/* Decorative blobs */}
+      <div className="absolute top-0 right-0 w-72 h-72 bg-orange-50 rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-violet-50 rounded-full -translate-x-1/3 translate-y-1/3 blur-3xl pointer-events-none" aria-hidden="true" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left — visual card */}
           <motion.div
@@ -61,27 +71,33 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            {/* Main card */}
-            <div className="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-3xl p-8 text-white relative overflow-hidden">
-              <div className="absolute -right-10 -top-10 w-48 h-48 bg-sky-400/10 rounded-full blur-3xl" aria-hidden="true" />
-              <div className="absolute -left-10 -bottom-10 w-48 h-48 bg-blue-600/10 rounded-full blur-3xl" aria-hidden="true" />
+            <div className="rounded-3xl p-8 text-white relative overflow-hidden"
+              style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #4F46E5 50%, #1E1B4B 100%)' }}
+            >
+              <div className="absolute -right-10 -top-10 w-48 h-48 bg-orange-400/20 rounded-full blur-2xl" aria-hidden="true" />
+              <div className="absolute -left-10 -bottom-10 w-48 h-48 bg-rose-400/20 rounded-full blur-2xl" aria-hidden="true" />
+              {/* Dot pattern */}
+              <div className="absolute inset-0 opacity-10"
+                style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '24px 24px' }}
+                aria-hidden="true"
+              />
 
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-sky-400 rounded-xl flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-rose-500 rounded-xl flex items-center justify-center">
                     <StarIcon className="w-5 h-5 text-white" />
                   </div>
                   <div>
                     <p className="font-bold text-white">Al Aseelah Trading</p>
-                    <p className="text-slate-400 text-xs">UAE Licensed Supplier</p>
+                    <p className="text-violet-300 text-xs">UAE Licensed Supplier</p>
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-bold mb-4 leading-tight">
+                <h3 className="text-2xl font-black mb-4 leading-tight font-outfit">
                   Why Businesses Choose{' '}
-                  <span className="text-sky-400">Al Aseelah</span>
+                  <span className="text-yellow-300">Al Aseelah</span>
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-8">
+                <p className="text-violet-200 text-sm leading-relaxed mb-8">
                   We've built our reputation on reliability, quality, and exceptional
                   service — making us the preferred egg supplier for businesses across UAE.
                 </p>
@@ -94,9 +110,9 @@ export default function WhyChooseUs() {
                     { n: '100%', l: 'On-time Delivery' },
                     { n: 'A Grade', l: 'Quality Guaranteed' },
                   ].map((s) => (
-                    <div key={s.l} className="bg-white/5 rounded-2xl p-4 border border-white/10">
-                      <p className="text-xl font-bold text-white">{s.n}</p>
-                      <p className="text-slate-500 text-xs mt-0.5">{s.l}</p>
+                    <div key={s.l} className="bg-white/10 rounded-2xl p-4 border border-white/15">
+                      <p className="text-xl font-black text-white font-outfit">{s.n}</p>
+                      <p className="text-violet-300 text-xs mt-0.5">{s.l}</p>
                     </div>
                   ))}
                 </div>
@@ -107,10 +123,10 @@ export default function WhyChooseUs() {
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -bottom-4 -right-4 glass shadow-xl rounded-2xl px-5 py-3 border border-white/30"
+              className="absolute -bottom-4 -right-4 bg-white shadow-2xl shadow-orange-200/60 rounded-2xl px-5 py-3 border border-orange-100"
             >
-              <p className="text-slate-900 font-bold text-sm">Supplying All UAE Emirates</p>
-              <p className="text-sky-600 text-xs">Abu Dhabi • Dubai • Sharjah • +4 more</p>
+              <p className="text-gray-900 font-bold text-sm">Supplying All UAE Emirates</p>
+              <p className="text-orange-500 text-xs font-semibold">Abu Dhabi • Dubai • Sharjah • +4 more</p>
             </motion.div>
           </motion.div>
 
@@ -123,15 +139,15 @@ export default function WhyChooseUs() {
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
               className="mb-10"
             >
-              <span className="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-sky-600 bg-sky-50 rounded-full uppercase mb-4 border border-sky-100">
+              <span className="inline-block px-3 py-1 text-xs font-bold tracking-widest text-violet-600 bg-violet-50 rounded-full uppercase mb-4 border border-violet-200">
                 Why Choose Us
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 font-outfit">
                 The{' '}
                 <span className="text-gradient">Al Aseelah</span>{' '}
                 Advantage
               </h2>
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 Six core pillars that make us UAE's most dependable egg supply partner.
               </p>
             </motion.div>
@@ -148,14 +164,14 @@ export default function WhyChooseUs() {
                   key={r.title}
                   variants={reasonItem}
                   whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
-                  className="group flex items-start gap-4 p-4 bg-white border border-slate-100 rounded-2xl hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/50 transition-all duration-200 cursor-default"
+                  className={`group flex items-start gap-4 p-4 bg-white border border-gray-100 rounded-2xl ${r.cardHover} hover:shadow-lg transition-all duration-200 cursor-default`}
                 >
-                  <div className={`flex-shrink-0 w-10 h-10 ${r.color} rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-200`}>
+                  <div className={`flex-shrink-0 w-10 h-10 ${r.iconBg} rounded-xl flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-200`}>
                     {r.icon}
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 text-sm mb-1">{r.title}</h4>
-                    <p className="text-slate-600 text-xs leading-relaxed">{r.desc}</p>
+                    <h4 className="font-bold text-gray-900 text-sm mb-1">{r.title}</h4>
+                    <p className="text-gray-600 text-xs leading-relaxed">{r.desc}</p>
                   </div>
                 </motion.div>
               ))}

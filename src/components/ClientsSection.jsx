@@ -14,44 +14,40 @@ const clients = [
     title: 'Hypermarkets',
     desc: 'High-volume hypermarkets and wholesale clubs requiring large quantity sourcing.',
     icon: <HypermarketIcon />,
-    color: 'from-indigo-600 to-indigo-500',
-    bg: 'bg-indigo-50',
-    border: 'border-indigo-100',
+    cardBg: 'bg-violet-600',
     count: 'Hyper Centers',
   },
   {
     title: 'Supermarkets',
     desc: 'Large supermarket chains requiring consistent bulk supply with regular delivery schedules.',
     icon: <SupermarketIcon />,
-    color: 'from-blue-600 to-blue-500',
-    bg: 'bg-blue-50',
-    border: 'border-blue-100',
+    cardBg: 'bg-orange-500',
     count: 'Major Chains',
   },
   {
     title: 'Restaurants',
     desc: 'Hotels, restaurants, and cafeterias needing reliable daily delivery of fresh eggs.',
     icon: <RestaurantIcon />,
-    color: 'from-cyan-600 to-sky-600',
-    bg: 'bg-cyan-50',
-    border: 'border-cyan-100',
+    cardBg: 'bg-rose-500',
     count: 'F&B Businesses',
   },
   {
     title: 'Grocery Stores',
     desc: 'Neighborhood grocery and convenience stores needing fresh, affordable egg supply.',
     icon: <GroceryIcon />,
-    color: 'from-sky-600 to-sky-500',
-    bg: 'bg-sky-50',
-    border: 'border-sky-100',
+    cardBg: 'bg-emerald-500',
     count: 'Retail Outlets',
   },
 ]
 
 export default function ClientsSection() {
   return (
-    <section id="clients" className="section-padding bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="clients" className="section-padding bg-amber-50 relative overflow-hidden">
+      {/* Decorative */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-orange-200 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl opacity-60 pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-violet-200 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl opacity-60 pointer-events-none" aria-hidden="true" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
@@ -59,15 +55,15 @@ export default function ClientsSection() {
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-sky-600 bg-sky-50 rounded-full uppercase mb-4 border border-sky-100">
+          <span className="inline-block px-3 py-1 text-xs font-bold tracking-widest text-amber-700 bg-amber-100 rounded-full uppercase mb-4 border border-amber-300">
             Who We Serve
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 font-outfit">
             Trusted by{' '}
             <span className="text-gradient">Businesses</span>{' '}
             Across UAE
           </h2>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
             From small grocery stores to large hypermarket chains, we serve
             every type of food business with dedicated supply solutions.
           </p>
@@ -85,18 +81,18 @@ export default function ClientsSection() {
               key={c.title}
               variants={clientCard}
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              className={`group ${c.bg} border ${c.border} rounded-3xl p-6 hover:shadow-xl transition-shadow duration-300 cursor-default`}
+              className={`group ${c.cardBg} rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-300 cursor-default`}
             >
-              <div className={`w-14 h-14 bg-gradient-to-br ${c.color} rounded-2xl flex items-center justify-center text-white mb-5 shadow-lg group-hover:scale-110 transition-transform duration-200`}>
+              <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white mb-5 shadow-lg group-hover:scale-110 transition-transform duration-200">
                 {c.icon}
               </div>
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest">{c.count}</span>
-              <h3 className="text-slate-900 font-bold text-xl mt-1 mb-3">{c.title}</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">{c.desc}</p>
+              <span className="text-xs font-bold text-white/60 uppercase tracking-widest">{c.count}</span>
+              <h3 className="text-white font-black text-xl mt-1 mb-3 font-outfit">{c.title}</h3>
+              <p className="text-white/80 text-sm leading-relaxed">{c.desc}</p>
 
               <div className="mt-5 flex items-center gap-1.5">
                 {[...Array(5)].map((_, j) => (
-                  <div key={j} className={`h-1 rounded-full bg-gradient-to-r ${c.color} ${j === 0 ? 'w-8' : j < 3 ? 'w-5' : 'w-3'}`} aria-hidden="true" />
+                  <div key={j} className={`h-1 rounded-full bg-white/60 ${j === 0 ? 'w-8' : j < 3 ? 'w-5' : 'w-3'}`} aria-hidden="true" />
                 ))}
               </div>
             </motion.div>
@@ -105,7 +101,8 @@ export default function ClientsSection() {
 
         {/* Trust belt */}
         <motion.div
-          className="mt-16 p-8 bg-gradient-to-br from-slate-900 to-blue-950 rounded-3xl grid sm:grid-cols-3 gap-6 text-center"
+          className="mt-16 p-8 rounded-3xl grid sm:grid-cols-3 gap-6 text-center"
+          style={{ background: 'linear-gradient(135deg, #EA580C, #E11D48, #7C3AED)' }}
           initial={{ opacity: 0, y: 40, scale: 0.96 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: false, amount: 0.4 }}
@@ -117,8 +114,8 @@ export default function ClientsSection() {
             { value: '100%', label: 'Delivery Reliability' },
           ].map((stat, i) => (
             <div key={i} className="flex flex-col items-center">
-              <p className="text-3xl font-bold text-white mb-1">{stat.value}</p>
-              <p className="text-slate-400 text-sm">{stat.label}</p>
+              <p className="text-3xl font-black text-white mb-1 font-outfit">{stat.value}</p>
+              <p className="text-white/70 text-sm">{stat.label}</p>
             </div>
           ))}
         </motion.div>

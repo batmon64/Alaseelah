@@ -9,24 +9,28 @@ const contactInfo = [
     label: 'Phone / WhatsApp',
     lines: ['+971 56 945 4672', '+971 52 358 1805'],
     href: 'tel:+971569454672',
+    iconBg: 'bg-orange-500',
   },
   {
     icon: <MailIcon />,
     label: 'Email',
     lines: ['info@alaseelah.com'],
     href: 'mailto:info@alaseelah.com',
+    iconBg: 'bg-rose-500',
   },
   {
     icon: <LocationIcon />,
     label: 'Address',
     lines: ['Al Muqta, Umm Al Quwain', 'United Arab Emirates'],
     href: 'https://www.google.com/maps?q=Al+ASEELAH+FOODSTUFF+TRADING+LLC&ftid=0x3ef5f9246c6e674b:0x2049f98f7aa246ee',
+    iconBg: 'bg-violet-600',
   },
   {
     icon: <GlobeIcon />,
     label: 'Website',
     lines: ['www.alaseelah.com'],
     href: 'https://www.alaseelah.com',
+    iconBg: 'bg-emerald-500',
   },
 ]
 
@@ -54,8 +58,18 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-b from-white to-slate-50">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="section-padding relative overflow-hidden"
+      style={{ background: 'linear-gradient(135deg, #0D9488 0%, #0891B2 50%, #2563EB 100%)' }}
+    >
+      {/* Decorative */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" aria-hidden="true" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl" aria-hidden="true" />
+      <div className="absolute inset-0 opacity-5"
+        style={{ backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '36px 36px' }}
+        aria-hidden="true"
+      />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 50 }}
@@ -63,14 +77,14 @@ export default function ContactSection() {
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-sky-600 bg-sky-50 rounded-full uppercase mb-4 border border-sky-100">
+          <span className="inline-block px-3 py-1 text-xs font-bold tracking-widest text-white bg-white/20 rounded-full uppercase mb-4 border border-white/30">
             Get in Touch
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 font-outfit">
             Start Your Partnership{' '}
-            <span className="text-gradient">Today</span>
+            <span className="text-yellow-300">Today</span>
           </h2>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white/80 text-lg max-w-2xl mx-auto leading-relaxed">
             Ready to secure a reliable egg supply for your business? Reach out to us
             and get a competitive quote within hours.
           </p>
@@ -90,12 +104,12 @@ export default function ContactSection() {
               {contactInfo.map((c) => (
                 <div
                   key={c.label}
-                  className="bg-white border border-slate-100 rounded-2xl p-5 hover:border-sky-200 hover:shadow-md transition-all duration-200"
+                  className="bg-white/15 backdrop-blur-sm border border-white/25 rounded-2xl p-5 hover:bg-white/25 hover:border-white/40 transition-all duration-200"
                 >
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-sky-500 rounded-xl flex items-center justify-center text-white mb-3">
+                  <div className={`w-10 h-10 ${c.iconBg} rounded-xl flex items-center justify-center text-white mb-3 shadow-lg`}>
                     {c.icon}
                   </div>
-                  <p className="text-slate-500 text-xs font-medium uppercase tracking-wide mb-1">{c.label}</p>
+                  <p className="text-white/60 text-xs font-bold uppercase tracking-wide mb-1">{c.label}</p>
                   {c.lines.map((line) =>
                     c.href ? (
                       <a
@@ -103,12 +117,12 @@ export default function ContactSection() {
                         href={c.href}
                         target={c.href.startsWith('http') && !c.href.startsWith('mailto') && !c.href.startsWith('tel') ? '_blank' : undefined}
                         rel={c.href.startsWith('http') && !c.href.startsWith('mailto') && !c.href.startsWith('tel') ? 'noopener noreferrer' : undefined}
-                        className="block text-slate-900 font-semibold text-sm hover:text-sky-600 transition-colors duration-150 cursor-pointer"
+                        className="block text-white font-semibold text-sm hover:text-yellow-300 transition-colors duration-150 cursor-pointer"
                       >
                         {line}
                       </a>
                     ) : (
-                      <p key={line} className="text-slate-900 font-semibold text-sm">{line}</p>
+                      <p key={line} className="text-white font-semibold text-sm">{line}</p>
                     )
                   )}
                 </div>
@@ -120,20 +134,20 @@ export default function ContactSection() {
               href="https://wa.me/971569454672?text=Hello%2C%20I%27m%20interested%20in%20your%20egg%20supply%20services."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 p-5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl text-white hover:scale-[1.02] hover:shadow-xl hover:shadow-green-500/30 transition-all duration-200 cursor-pointer"
+              className="flex items-center gap-4 p-5 bg-green-500 hover:bg-green-400 rounded-2xl text-white hover:scale-[1.02] hover:shadow-xl transition-all duration-200 cursor-pointer"
             >
               <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
                 <WhatsAppIcon className="w-7 h-7" />
               </div>
               <div>
-                <p className="font-bold text-lg">Chat on WhatsApp</p>
+                <p className="font-black text-lg font-outfit">Chat on WhatsApp</p>
                 <p className="text-green-100 text-sm">+971 56 945 4672 — Fastest response</p>
               </div>
               <ArrowIcon className="w-5 h-5 ml-auto flex-shrink-0" />
             </a>
 
             {/* Map */}
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md h-56">
+            <div className="rounded-2xl overflow-hidden border border-white/20 shadow-2xl shadow-black/20 h-56">
               <iframe
                 src="https://www.google.com/maps?q=Al+ASEELAH+FOODSTUFF+TRADING+LLC&ftid=0x3ef5f9246c6e674b:0x2049f98f7aa246ee&output=embed"
                 width="100%"
@@ -154,9 +168,9 @@ export default function ContactSection() {
             viewport={{ once: false, amount: 0.15 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="bg-white border border-slate-100 rounded-3xl p-8 shadow-xl shadow-slate-100/80">
-              <h3 className="text-xl font-bold text-slate-900 mb-1">Request a Quote</h3>
-              <p className="text-slate-500 text-sm mb-8">Fill in the form and we'll get back to you within hours.</p>
+            <div className="bg-white rounded-3xl p-8 shadow-2xl shadow-black/20">
+              <h3 className="text-xl font-black text-gray-900 mb-1 font-outfit">Request a Quote</h3>
+              <p className="text-gray-500 text-sm mb-8">Fill in the form and we'll get back to you within hours.</p>
 
               {status === 'success' ? (
                 <motion.div
@@ -164,16 +178,16 @@ export default function ContactSection() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-12"
                 >
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                  <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-2">Message Sent!</h4>
-                  <p className="text-slate-600 text-sm mb-6">Thank you for reaching out. We'll contact you shortly.</p>
+                  <h4 className="text-xl font-black text-gray-900 mb-2 font-outfit">Message Sent!</h4>
+                  <p className="text-gray-600 text-sm mb-6">Thank you for reaching out. We'll contact you shortly.</p>
                   <button
                     onClick={() => setStatus('idle')}
-                    className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-sky-500 text-white font-semibold rounded-xl cursor-pointer hover:scale-105 transition-transform duration-200"
+                    className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-rose-500 text-white font-bold rounded-xl cursor-pointer hover:scale-105 transition-transform duration-200"
                   >
                     Send Another
                   </button>
@@ -182,62 +196,46 @@ export default function ContactSection() {
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1.5">
-                        Full Name <span className="text-red-400">*</span>
+                      <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-1.5">
+                        Full Name <span className="text-rose-500">*</span>
                       </label>
                       <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        required
-                        value={form.name}
-                        onChange={handleChange}
-                        placeholder="Your name"
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150"
+                        id="name" name="name" type="text" required
+                        value={form.name} onChange={handleChange} placeholder="Your name"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-150"
                       />
                     </div>
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-1.5">
-                        Phone Number <span className="text-red-400">*</span>
+                      <label htmlFor="phone" className="block text-sm font-bold text-gray-700 mb-1.5">
+                        Phone Number <span className="text-rose-500">*</span>
                       </label>
                       <input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        required
-                        value={form.phone}
-                        onChange={handleChange}
-                        placeholder="+971 XX XXX XXXX"
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150"
+                        id="phone" name="phone" type="tel" required
+                        value={form.phone} onChange={handleChange} placeholder="+971 XX XXX XXXX"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-150"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="business" className="block text-sm font-semibold text-slate-700 mb-1.5">
+                    <label htmlFor="business" className="block text-sm font-bold text-gray-700 mb-1.5">
                       Business Name
                     </label>
                     <input
-                      id="business"
-                      name="business"
-                      type="text"
-                      value={form.business}
-                      onChange={handleChange}
-                      placeholder="Your company or shop name"
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150"
+                      id="business" name="business" type="text"
+                      value={form.business} onChange={handleChange} placeholder="Your company or shop name"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-150"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="requirement" className="block text-sm font-semibold text-slate-700 mb-1.5">
+                    <label htmlFor="requirement" className="block text-sm font-bold text-gray-700 mb-1.5">
                       Requirement Type
                     </label>
                     <select
-                      id="requirement"
-                      name="requirement"
-                      value={form.requirement}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150 cursor-pointer appearance-none"
+                      id="requirement" name="requirement"
+                      value={form.requirement} onChange={handleChange}
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-150 cursor-pointer appearance-none"
                     >
                       <option value="">Select requirement</option>
                       <option value="imported-eggs">Imported Eggs (India/Pakistan/Turkey/Saudi Arabia)</option>
@@ -249,22 +247,19 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-1.5">
+                    <label htmlFor="message" className="block text-sm font-bold text-gray-700 mb-1.5">
                       Message
                     </label>
                     <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      value={form.message}
-                      onChange={handleChange}
+                      id="message" name="message" rows={4}
+                      value={form.message} onChange={handleChange}
                       placeholder="Tell us about your quantity needs, delivery location, etc."
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150 resize-none"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-150 resize-none"
                     />
                   </div>
 
                   {status === 'error' && (
-                    <p className="text-red-500 text-sm bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+                    <p className="text-rose-600 text-sm bg-rose-50 border border-rose-100 rounded-xl px-4 py-3">
                       Something went wrong. Please try WhatsApp or email us directly.
                     </p>
                   )}
@@ -272,7 +267,7 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className="w-full py-4 bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer text-lg"
+                    className="w-full py-4 bg-gradient-to-r from-orange-500 to-rose-500 text-white font-black rounded-xl shadow-lg shadow-orange-400/30 hover:shadow-orange-400/50 hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer text-lg font-outfit"
                   >
                     {status === 'sending' ? 'Sending...' : 'Send Enquiry'}
                   </button>
