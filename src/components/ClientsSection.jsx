@@ -11,24 +11,6 @@ const clientCard = {
 
 const clients = [
   {
-    title: 'Supermarkets',
-    desc: 'Large supermarket chains requiring consistent bulk supply with regular delivery schedules.',
-    icon: <SupermarketIcon />,
-    color: 'from-blue-600 to-blue-500',
-    bg: 'bg-blue-50',
-    border: 'border-blue-100',
-    count: 'Major Chains',
-  },
-  {
-    title: 'Grocery Stores',
-    desc: 'Neighborhood grocery and convenience stores needing fresh, affordable egg supply.',
-    icon: <GroceryIcon />,
-    color: 'from-sky-600 to-sky-500',
-    bg: 'bg-sky-50',
-    border: 'border-sky-100',
-    count: 'Retail Outlets',
-  },
-  {
     title: 'Hypermarkets',
     desc: 'High-volume hypermarkets and wholesale clubs requiring large quantity sourcing.',
     icon: <HypermarketIcon />,
@@ -38,6 +20,15 @@ const clients = [
     count: 'Hyper Centers',
   },
   {
+    title: 'Supermarkets',
+    desc: 'Large supermarket chains requiring consistent bulk supply with regular delivery schedules.',
+    icon: <SupermarketIcon />,
+    color: 'from-blue-600 to-blue-500',
+    bg: 'bg-blue-50',
+    border: 'border-blue-100',
+    count: 'Major Chains',
+  },
+  {
     title: 'Restaurants',
     desc: 'Hotels, restaurants, and cafeterias needing reliable daily delivery of fresh eggs.',
     icon: <RestaurantIcon />,
@@ -45,6 +36,15 @@ const clients = [
     bg: 'bg-cyan-50',
     border: 'border-cyan-100',
     count: 'F&B Businesses',
+  },
+  {
+    title: 'Grocery Stores',
+    desc: 'Neighborhood grocery and convenience stores needing fresh, affordable egg supply.',
+    icon: <GroceryIcon />,
+    color: 'from-sky-600 to-sky-500',
+    bg: 'bg-sky-50',
+    border: 'border-sky-100',
+    count: 'Retail Outlets',
   },
 ]
 

@@ -13,7 +13,7 @@ const highlights = [
   {
     icon: <GlobeIcon />,
     title: 'Global Sourcing',
-    desc: 'Importing premium eggs from India, Pakistan, and Turkey with strict quality standards.',
+    desc: 'Importing premium eggs from India, Pakistan, Turkey, and Saudi Arabia with strict quality standards.',
   },
   {
     icon: <LeafIcon />,
@@ -94,7 +94,7 @@ export default function AboutSection() {
               </p>
               <p className="text-slate-600 leading-relaxed mb-7">
                 With a strong supply chain spanning{' '}
-                <strong className="text-slate-800">India, Pakistan, Turkey</strong>,
+                <strong className="text-slate-800">India, Pakistan, Turkey, Saudi Arabia</strong>,
                 and UAE's own certified farms, we deliver consistent quality, hygienic
                 packaging, and competitive pricing to supermarkets, grocery stores,
                 hypermarkets, restaurants, and more.

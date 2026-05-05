@@ -12,7 +12,7 @@ const stepFadeUp = {
 const steps = [
   {
     title: 'Sourcing',
-    desc: 'Direct procurement from certified farms in India, Pakistan, Turkey, and the UAE ensuring premium quality at origin.',
+    desc: 'Direct procurement from certified farms in India, Pakistan, Turkey, Saudi Arabia, and the UAE ensuring premium quality at origin.',
     icon: <SourcingIcon />,
     color: 'from-blue-600 to-blue-500',
     ring: 'ring-blue-200',
