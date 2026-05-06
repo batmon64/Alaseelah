@@ -12,7 +12,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp'
 
 export default function App() {
   return (
-    <div className="font-rubik overflow-x-hidden">
+    <div className="font-lexend overflow-x-hidden">
       <Navbar />
       <HeroSection />
       <AboutSection />
