@@ -54,7 +54,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-b from-white to-slate-50">
+    <section id="contact" className="section-padding bg-slate-100">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -90,7 +90,7 @@ export default function ContactSection() {
               {contactInfo.map((c) => (
                 <div
                   key={c.label}
-                  className="bg-white border border-slate-100 rounded-2xl p-5 hover:border-sky-200 hover:shadow-md transition-all duration-200"
+                  className="bg-white border border-sky-200 rounded-2xl p-5 hover:border-sky-400 hover:shadow-md transition-all duration-200"
                 >
                   <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-sky-500 rounded-xl flex items-center justify-center text-white mb-3">
                     {c.icon}
@@ -133,7 +133,7 @@ export default function ContactSection() {
             </a>
 
             {/* Map */}
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md h-56">
+            <div className="rounded-2xl overflow-hidden border border-sky-100 shadow-md h-56">
               <iframe
                 src="https://www.google.com/maps?q=Al+ASEELAH+FOODSTUFF+TRADING+LLC&ftid=0x3ef5f9246c6e674b:0x2049f98f7aa246ee&output=embed"
                 width="100%"
@@ -154,7 +154,7 @@ export default function ContactSection() {
             viewport={{ once: false, amount: 0.15 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="bg-white border border-slate-100 rounded-3xl p-8 shadow-xl shadow-slate-100/80">
+            <div className="bg-white border border-sky-200 rounded-3xl p-8 shadow-xl shadow-sky-200/60">
               <h3 className="text-xl font-bold text-slate-900 mb-1">Request a Quote</h3>
               <p className="text-slate-500 text-sm mb-8">Fill in the form and we'll get back to you within hours.</p>
 
@@ -193,7 +193,7 @@ export default function ContactSection() {
                         value={form.name}
                         onChange={handleChange}
                         placeholder="Your name"
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150"
+                        className="w-full px-4 py-3 bg-sky-50/80 border border-sky-100 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150"
                       />
                     </div>
                     <div>
@@ -208,7 +208,7 @@ export default function ContactSection() {
                         value={form.phone}
                         onChange={handleChange}
                         placeholder="+971 XX XXX XXXX"
-                        className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150"
+                        className="w-full px-4 py-3 bg-sky-50/80 border border-sky-100 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150"
                       />
                     </div>
                   </div>
@@ -224,7 +224,7 @@ export default function ContactSection() {
                       value={form.business}
                       onChange={handleChange}
                       placeholder="Your company or shop name"
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150"
+                      className="w-full px-4 py-3 bg-sky-50/80 border border-sky-100 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150"
                     />
                   </div>
 
@@ -237,10 +237,10 @@ export default function ContactSection() {
                       name="requirement"
                       value={form.requirement}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150 cursor-pointer appearance-none"
+                      className="w-full px-4 py-3 bg-sky-50/80 border border-sky-100 rounded-xl text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150 cursor-pointer appearance-none"
                     >
                       <option value="">Select requirement</option>
-                      <option value="imported-eggs">Imported Eggs (India/Pakistan/Turkey)</option>
+                      <option value="imported-eggs">Imported Eggs (India/Pakistan/Turkey/Saudi Arabia)</option>
                       <option value="uae-fresh-eggs">Fresh UAE Eggs</option>
                       <option value="bulk-wholesale">Bulk / Wholesale Order</option>
                       <option value="regular-supply">Regular Supply Contract</option>
@@ -259,7 +259,7 @@ export default function ContactSection() {
                       value={form.message}
                       onChange={handleChange}
                       placeholder="Tell us about your quantity needs, delivery location, etc."
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150 resize-none"
+                      className="w-full px-4 py-3 bg-sky-50/80 border border-sky-100 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition-all duration-150 resize-none"
                     />
                   </div>
 

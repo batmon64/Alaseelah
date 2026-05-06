@@ -37,7 +37,7 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      <nav className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -48,7 +48,7 @@ export default function Navbar() {
             <img
               src="/Images/logo2.png"
               alt="Al Aseelah Foodstuff Trading LLC"
-              className="h-12 w-auto"
+              className="h-16 w-auto"
             />
           </div>
         </button>
