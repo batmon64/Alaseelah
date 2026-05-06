@@ -16,7 +16,7 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-sky-900 pt-20 pb-8">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-sky-900 pt-24 pb-8">
       {/* Background grid */}
       <div
         className="absolute inset-0 opacity-10"
@@ -91,7 +91,7 @@ export default function HeroSection() {
           variants={heroItem}
           className="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Wholesale &amp; retail egg distribution from India, Pakistan, Turkey, and
+          Wholesale &amp; retail egg distribution from India, Pakistan, Turkey, Saudi Arabia, and
           fresh UAE farms — delivered to supermarkets, grocery stores, and businesses
           with uncompromising quality.
         </motion.p>
@@ -107,7 +107,7 @@ export default function HeroSection() {
             rel="noopener noreferrer"
             className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold rounded-2xl shadow-xl shadow-green-500/30 hover:shadow-green-500/50 hover:scale-105 transition-all duration-200 cursor-pointer text-lg"
           >
-            <WhatsAppIcon className="w-6 h-6 group-hover:scale-110 transition-transform duration-200" />
+            <WhatsAppIcon className="w-8 h-8 group-hover:scale-110 transition-transform duration-200" />
             Contact on WhatsApp
           </a>
           <button
@@ -126,7 +126,7 @@ export default function HeroSection() {
         >
           {[
             { value: '7+', label: 'Emirates Served' },
-            { value: '3', label: 'Import Countries' },
+            { value: '4', label: 'Import Countries' },
             { value: '100%', label: 'Quality Assured' },
           ].map((stat) => (
             <div key={stat.label} className="glass-dark rounded-2xl p-4 border border-white/10">

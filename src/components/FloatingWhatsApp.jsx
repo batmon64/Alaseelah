@@ -24,12 +24,12 @@ export default function FloatingWhatsApp() {
       </motion.span>
 
       {/* Button */}
-      <div className="relative w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl shadow-xl shadow-green-500/40 flex items-center justify-center">
+      <div className="relative w-18 h-18 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl shadow-xl shadow-green-500/40 flex items-center justify-center" style={{width:'4.5rem', height:'4.5rem'}}>
         {/* Ripple rings */}
         <span className="absolute inset-0 rounded-2xl bg-green-500 animate-ping opacity-30" aria-hidden="true" />
         <span className="absolute inset-0 rounded-2xl bg-green-500 animate-ping opacity-20 [animation-delay:0.5s]" aria-hidden="true" />
 
-        <WhatsAppIcon className="w-7 h-7 text-white relative z-10" />
+        <WhatsAppIcon className="w-9 h-9 text-white relative z-10" />
       </div>
     </motion.a>
   )

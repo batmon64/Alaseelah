@@ -12,7 +12,7 @@ const cardItem = {
 const cards = [
   {
     title: 'Global Sourcing',
-    desc: 'Certified farms in India, Pakistan, and Turkey deliver premium-grade eggs directly into our UAE supply chain.',
+    desc: 'Certified farms in India, Pakistan, Turkey, and Saudi Arabia deliver premium-grade eggs directly into our UAE supply chain.',
     animation: <GlobalSourcingAnim />,
     accent: 'border-blue-500/30 hover:border-blue-400/60',
     glow: 'bg-blue-500/5',
@@ -96,6 +96,7 @@ function GlobalSourcingAnim() {
     { cx: 88, cy: 50, delay: 0, label: 'India' },
     { cx: 78, cy: 32, delay: 0.6, label: 'Pakistan' },
     { cx: 38, cy: 28, delay: 1.2, label: 'Turkey' },
+    { cx: 72, cy: 48, delay: 1.8, label: 'Saudi Arabia' },
   ]
   return (
     <svg viewBox="0 0 120 120" className="w-full h-full" aria-hidden="true">

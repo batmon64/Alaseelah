@@ -50,7 +50,7 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="section-padding bg-gradient-to-b from-slate-50 to-white">
+    <section id="why-us" className="section-padding bg-[#F1E0CB]">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left — visual card */}
@@ -148,7 +148,7 @@ export default function WhyChooseUs() {
                   key={r.title}
                   variants={reasonItem}
                   whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
-                  className="group flex items-start gap-4 p-4 bg-white border border-slate-100 rounded-2xl hover:border-sky-200 hover:shadow-lg hover:shadow-sky-100/50 transition-all duration-200 cursor-default"
+                  className="group flex items-start gap-4 p-4 bg-white border border-sky-200 rounded-2xl hover:border-sky-400 hover:shadow-lg hover:shadow-sky-200/50 transition-all duration-200 cursor-default"
                 >
                   <div className={`flex-shrink-0 w-10 h-10 ${r.color} rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-200`}>
                     {r.icon}

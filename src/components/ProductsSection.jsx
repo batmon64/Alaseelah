@@ -12,9 +12,9 @@ const cardItem = {
 const products = [
   {
     title: 'Imported Eggs',
-    subtitle: 'India • Pakistan • Turkey',
-    desc: 'Premium quality eggs sourced directly from certified farms in India, Pakistan, and Turkey. Available in all sizes and grades.',
-    gradient: 'from-blue-600 to-blue-500',
+    subtitle: 'India • Pakistan • Turkey • Saudi Arabia',
+    desc: 'Premium quality eggs sourced directly from certified farms in India, Pakistan, Turkey, and Saudi Arabia. Available in all sizes and grades.',
+    image: '/Images/Products/This_is_one_of_my_202605051429.jpeg',
     glow: 'shadow-blue-500/20',
     border: 'border-blue-100',
     badge: 'International',
@@ -26,7 +26,7 @@ const products = [
     title: 'Fresh UAE Eggs',
     subtitle: 'Locally Sourced',
     desc: "Farm-fresh eggs from UAE's certified local farms, delivered daily to ensure maximum freshness and nutritional value.",
-    gradient: 'from-sky-500 to-cyan-500',
+    image: '/Images/Products/Create_an_8k_rendered_version_202605051446.jpeg',
     glow: 'shadow-sky-500/20',
     border: 'border-sky-100',
     badge: 'Local Fresh',
@@ -38,7 +38,7 @@ const products = [
     title: 'Hygienic Packaging',
     subtitle: 'Safe & Secure',
     desc: 'All eggs are carefully packed in hygienic, food-safe packaging that preserves freshness and prevents breakage during transit.',
-    gradient: 'from-indigo-600 to-blue-600',
+    image: '/Images/Products/Create_an_8k_rendered_version_202605051435.jpeg',
     glow: 'shadow-indigo-500/20',
     border: 'border-indigo-100',
     badge: 'Food Safe',
@@ -50,7 +50,7 @@ const products = [
     title: 'Bulk Orders',
     subtitle: 'Wholesale Supply',
     desc: 'Flexible bulk order solutions for supermarkets, hypermarkets, restaurants, and large-scale food businesses across UAE.',
-    gradient: 'from-slate-700 to-blue-800',
+    image: '/Images/Products/Create_an_8k_rendered_version_202605051440.jpeg',
     glow: 'shadow-slate-500/20',
     border: 'border-slate-100',
     badge: 'Wholesale',
@@ -60,9 +60,27 @@ const products = [
   },
 ]
 
+const specialtyProducts = [
+  {
+    title: 'Brown Eggs',
+    subtitle: 'Al Ladhidh · UAE Produced · 30 Large',
+    image: '/Images/Products/Create_an_8k_rendered_version_202605051448.jpeg',
+  },
+  {
+    title: 'Duck Eggs',
+    subtitle: 'Al Ladhidh · UAE Produced · 6 Pack',
+    image: '/Images/Products/Create_an_8k_rendered_version_202605051451.jpeg',
+  },
+  {
+    title: 'Quail Eggs',
+    subtitle: 'Al Ladhidh · UAE Produced',
+    image: '/Images/Products/Create_an_8k_rendered_version_202605051454.jpeg',
+  },
+]
+
 export default function ProductsSection() {
   return (
-    <section id="products" className="section-padding bg-gradient-to-b from-white to-slate-50">
+    <section id="products" className="section-padding bg-[#F1E0CB]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -108,6 +126,7 @@ export default function ProductsSection() {
           </div>
         </motion.div>
 
+        {/* Main product cards */}
         <motion.div
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={cardContainer}
@@ -122,20 +141,29 @@ export default function ProductsSection() {
               whileHover={{ y: -8, transition: { duration: 0.25 } }}
               className={`group bg-white border ${p.border} rounded-3xl overflow-hidden shadow-lg ${p.glow} hover:shadow-xl transition-shadow duration-300 cursor-default`}
             >
-              {/* Card top */}
-              <div className={`p-6 bg-gradient-to-br ${p.gradient} relative overflow-hidden`}>
-                <div className="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full" aria-hidden="true" />
-                <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-white/5 rounded-full" aria-hidden="true" />
-                <div className="relative flex items-start justify-between">
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-white">
+              {/* Card image header */}
+              <div className="relative h-44 overflow-hidden">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent" />
+                <div className="absolute top-3 left-3">
+                  <div className="w-9 h-9 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center text-white">
                     {p.icon}
                   </div>
+                </div>
+                <div className="absolute top-3 right-3">
                   <span className={`px-2.5 py-1 text-xs font-semibold rounded-full ${p.badgeColor}`}>
                     {p.badge}
                   </span>
                 </div>
-                <h3 className="text-white font-bold text-xl mt-4 leading-tight">{p.title}</h3>
-                <p className="text-white/70 text-sm mt-0.5">{p.subtitle}</p>
+                <div className="absolute bottom-0 left-0 p-4">
+                  <h3 className="text-white font-bold text-lg leading-tight drop-shadow">{p.title}</h3>
+                  <p className="text-white/70 text-xs mt-0.5">{p.subtitle}</p>
+                </div>
               </div>
 
               {/* Card body */}
@@ -153,6 +181,47 @@ export default function ProductsSection() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Specialty eggs */}
+        <motion.div
+          className="mt-10"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="text-center text-xs font-semibold tracking-widest text-slate-400 uppercase mb-6">
+            Also Available
+          </p>
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-3 gap-5"
+            variants={cardContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.1 }}
+          >
+            {specialtyProducts.map((sp) => (
+              <motion.div
+                key={sp.title}
+                variants={cardItem}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="relative rounded-2xl overflow-hidden shadow-md cursor-default group h-44"
+              >
+                <img
+                  src={sp.image}
+                  alt={sp.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/75 via-slate-900/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-4">
+                  <h3 className="text-white font-bold text-base drop-shadow">{sp.title}</h3>
+                  <p className="text-white/65 text-xs mt-0.5">{sp.subtitle}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
@@ -168,7 +237,7 @@ function CheckIcon({ className }) {
 
 function ImportIcon() {
   return (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
       <circle cx="12" cy="12" r="10" />
       <path strokeLinecap="round" strokeLinejoin="round" d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
     </svg>
@@ -177,7 +246,7 @@ function ImportIcon() {
 
 function FarmIcon() {
   return (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
       <path strokeLinecap="round" strokeLinejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
       <polyline points="9 22 9 12 15 12 15 22" />
     </svg>
@@ -186,7 +255,7 @@ function FarmIcon() {
 
 function PackageIcon() {
   return (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
       <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
       <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
       <line x1="12" y1="22.08" x2="12" y2="12" />
@@ -196,7 +265,7 @@ function PackageIcon() {
 
 function BulkIcon() {
   return (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} aria-hidden="true">
       <rect x="2" y="7" width="20" height="14" rx="2" />
       <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
       <line x1="12" y1="12" x2="12" y2="16" />

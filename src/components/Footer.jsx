@@ -29,7 +29,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-sm leading-relaxed text-slate-500 max-w-xs">
-              UAE's trusted egg supplier — importing from India, Pakistan &amp; Turkey,
+              UAE's trusted egg supplier — importing from India, Pakistan, Turkey &amp; Saudi Arabia,
               and distributing fresh UAE eggs across all emirates.
             </p>
             <div className="flex items-center gap-3 mt-6">
