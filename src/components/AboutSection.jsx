@@ -13,7 +13,7 @@ const highlights = [
   {
     icon: <GlobeIcon />,
     title: 'Global Sourcing',
-    desc: 'Importing premium eggs from India, Pakistan, and Turkey with strict quality standards.',
+    desc: 'Importing premium eggs from India, Pakistan, Turkey, and Saudi Arabia with strict quality standards.',
   },
   {
     icon: <LeafIcon />,
@@ -29,7 +29,7 @@ const highlights = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="section-padding bg-sky-100">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -94,7 +94,7 @@ export default function AboutSection() {
               </p>
               <p className="text-slate-600 leading-relaxed mb-7">
                 With a strong supply chain spanning{' '}
-                <strong className="text-slate-800">India, Pakistan, Turkey</strong>,
+                <strong className="text-slate-800">India, Pakistan, Turkey, Saudi Arabia</strong>,
                 and UAE's own certified farms, we deliver consistent quality, hygienic
                 packaging, and competitive pricing to supermarkets, grocery stores,
                 hypermarkets, restaurants, and more.
@@ -104,7 +104,7 @@ export default function AboutSection() {
                 {['Licensed UAE Trader', 'All Emirates Delivery', 'Bulk & Retail'].map((tag) => (
                   <span
                     key={tag}
-                    className="px-4 py-2 bg-slate-50 border border-slate-200 text-slate-700 text-sm font-medium rounded-xl"
+                    className="px-4 py-2 bg-sky-100/60 border border-sky-200 text-slate-700 text-sm font-medium rounded-xl"
                   >
                     {tag}
                   </span>

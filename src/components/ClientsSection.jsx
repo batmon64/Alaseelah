@@ -11,24 +11,6 @@ const clientCard = {
 
 const clients = [
   {
-    title: 'Supermarkets',
-    desc: 'Large supermarket chains requiring consistent bulk supply with regular delivery schedules.',
-    icon: <SupermarketIcon />,
-    color: 'from-blue-600 to-blue-500',
-    bg: 'bg-blue-50',
-    border: 'border-blue-100',
-    count: 'Major Chains',
-  },
-  {
-    title: 'Grocery Stores',
-    desc: 'Neighborhood grocery and convenience stores needing fresh, affordable egg supply.',
-    icon: <GroceryIcon />,
-    color: 'from-sky-600 to-sky-500',
-    bg: 'bg-sky-50',
-    border: 'border-sky-100',
-    count: 'Retail Outlets',
-  },
-  {
     title: 'Hypermarkets',
     desc: 'High-volume hypermarkets and wholesale clubs requiring large quantity sourcing.',
     icon: <HypermarketIcon />,
@@ -36,6 +18,15 @@ const clients = [
     bg: 'bg-indigo-50',
     border: 'border-indigo-100',
     count: 'Hyper Centers',
+  },
+  {
+    title: 'Supermarkets',
+    desc: 'Large supermarket chains requiring consistent bulk supply with regular delivery schedules.',
+    icon: <SupermarketIcon />,
+    color: 'from-blue-600 to-blue-500',
+    bg: 'bg-blue-50',
+    border: 'border-blue-100',
+    count: 'Major Chains',
   },
   {
     title: 'Restaurants',
@@ -46,11 +37,20 @@ const clients = [
     border: 'border-cyan-100',
     count: 'F&B Businesses',
   },
+  {
+    title: 'Grocery Stores',
+    desc: 'Neighborhood grocery and convenience stores needing fresh, affordable egg supply.',
+    icon: <GroceryIcon />,
+    color: 'from-sky-600 to-sky-500',
+    bg: 'bg-sky-50',
+    border: 'border-sky-100',
+    count: 'Retail Outlets',
+  },
 ]
 
 export default function ClientsSection() {
   return (
-    <section id="clients" className="section-padding bg-white">
+    <section id="clients" className="section-padding bg-slate-100">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"

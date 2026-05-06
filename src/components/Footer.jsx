@@ -16,20 +16,22 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-slate-900 text-slate-400">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-8">
-        <div className="grid md:grid-cols-3 gap-10 pb-12 border-b border-slate-800">
+    <footer className="bg-gray-950 text-gray-400 relative overflow-hidden">
+      {/* Colorful top border */}
+      <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #F97316, #E11D48, #7C3AED, #0891B2, #10B981)' }} />
+      {/* Decorative blobs */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-orange-600/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-violet-600/5 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl pointer-events-none" aria-hidden="true" />
+
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-8 relative z-10">
+        <div className="grid md:grid-cols-3 gap-10 pb-12 border-b border-gray-800">
           {/* Brand */}
           <div>
-            <div className="mb-5 inline-block bg-white rounded-xl px-2 py-1 shadow-md shadow-black/20">
-              <img
-                src="/Images/logo2.png"
-                alt="Al Aseelah Foodstuff Trading LLC"
-                className="h-14 w-auto"
-              />
+            <div className="mb-5 inline-block bg-white rounded-xl px-2 py-1 shadow-md shadow-black/30">
+              <img src="/Images/logo2.png" alt="Al Aseelah Foodstuff Trading LLC" className="h-14 w-auto" />
             </div>
-            <p className="text-sm leading-relaxed text-slate-500 max-w-xs">
-              UAE's trusted egg supplier — importing from India, Pakistan &amp; Turkey,
+            <p className="text-sm leading-relaxed text-gray-500 max-w-xs">
+              UAE's trusted egg supplier — importing from India, Pakistan, Turkey &amp; Saudi Arabia,
               and distributing fresh UAE eggs across all emirates.
             </p>
             <div className="flex items-center gap-3 mt-6">
@@ -38,38 +40,38 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="w-9 h-9 bg-slate-800 hover:bg-green-600 rounded-xl flex items-center justify-center transition-colors duration-200 cursor-pointer"
+                className="w-9 h-9 bg-green-600 hover:bg-green-500 rounded-xl flex items-center justify-center transition-colors duration-200 cursor-pointer"
               >
-                <WhatsAppIcon className="w-4 h-4 text-slate-400 hover:text-white" />
+                <WhatsAppIcon className="w-4 h-4 text-white" />
               </a>
               <a
                 href="mailto:info@alaseelah.com"
                 aria-label="Email"
-                className="w-9 h-9 bg-slate-800 hover:bg-sky-600 rounded-xl flex items-center justify-center transition-colors duration-200 cursor-pointer"
+                className="w-9 h-9 bg-orange-600 hover:bg-orange-500 rounded-xl flex items-center justify-center transition-colors duration-200 cursor-pointer"
               >
-                <MailIcon className="w-4 h-4 text-slate-400" />
+                <MailIcon className="w-4 h-4 text-white" />
               </a>
               <a
                 href="tel:+971569454672"
                 aria-label="Phone"
-                className="w-9 h-9 bg-slate-800 hover:bg-blue-600 rounded-xl flex items-center justify-center transition-colors duration-200 cursor-pointer"
+                className="w-9 h-9 bg-violet-600 hover:bg-violet-500 rounded-xl flex items-center justify-center transition-colors duration-200 cursor-pointer"
               >
-                <PhoneIcon className="w-4 h-4 text-slate-400" />
+                <PhoneIcon className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-widest mb-5">Quick Links</h4>
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-5">Quick Links</h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => handleNav(link.href)}
-                    className="text-slate-500 hover:text-sky-400 text-sm transition-colors duration-150 cursor-pointer flex items-center gap-2 focus:outline-none focus:text-sky-400"
+                    className="text-gray-500 hover:text-orange-400 text-sm transition-colors duration-150 cursor-pointer flex items-center gap-2 focus:outline-none focus:text-orange-400"
                   >
-                    <span className="w-1 h-1 rounded-full bg-sky-500" aria-hidden="true" />
+                    <span className="w-1 h-1 rounded-full bg-orange-500" aria-hidden="true" />
                     {link.label}
                   </button>
                 </li>
@@ -79,40 +81,39 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-widest mb-5">Contact</h4>
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-5">Contact</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <LocationIcon className="w-4 h-4 text-sky-500 flex-shrink-0 mt-0.5" />
+                <LocationIcon className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
                 <a
                   href="https://www.google.com/maps?q=Al+ASEELAH+FOODSTUFF+TRADING+LLC&ftid=0x3ef5f9246c6e674b:0x2049f98f7aa246ee"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-500 hover:text-sky-400 transition-colors duration-150 cursor-pointer"
+                  target="_blank" rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-orange-400 transition-colors duration-150 cursor-pointer"
                 >
                   Al Muqta, Umm Al Quwain, UAE
                 </a>
               </li>
               <li>
-                <a href="tel:+971569454672" className="flex items-center gap-3 text-slate-500 hover:text-sky-400 transition-colors duration-150 cursor-pointer">
-                  <PhoneIcon className="w-4 h-4 text-sky-500 flex-shrink-0" />
+                <a href="tel:+971569454672" className="flex items-center gap-3 text-gray-500 hover:text-orange-400 transition-colors duration-150 cursor-pointer">
+                  <PhoneIcon className="w-4 h-4 text-rose-500 flex-shrink-0" />
                   +971 56 945 4672
                 </a>
               </li>
               <li>
-                <a href="tel:+971523581805" className="flex items-center gap-3 text-slate-500 hover:text-sky-400 transition-colors duration-150 cursor-pointer">
-                  <PhoneIcon className="w-4 h-4 text-sky-500 flex-shrink-0" />
+                <a href="tel:+971523581805" className="flex items-center gap-3 text-gray-500 hover:text-orange-400 transition-colors duration-150 cursor-pointer">
+                  <PhoneIcon className="w-4 h-4 text-rose-500 flex-shrink-0" />
                   +971 52 358 1805
                 </a>
               </li>
               <li>
-                <a href="mailto:info@alaseelah.com" className="flex items-center gap-3 text-slate-500 hover:text-sky-400 transition-colors duration-150 cursor-pointer">
-                  <MailIcon className="w-4 h-4 text-sky-500 flex-shrink-0" />
+                <a href="mailto:info@alaseelah.com" className="flex items-center gap-3 text-gray-500 hover:text-orange-400 transition-colors duration-150 cursor-pointer">
+                  <MailIcon className="w-4 h-4 text-orange-500 flex-shrink-0" />
                   info@alaseelah.com
                 </a>
               </li>
               <li>
-                <a href="https://www.alaseelah.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-500 hover:text-sky-400 transition-colors duration-150 cursor-pointer">
-                  <GlobeIcon className="w-4 h-4 text-sky-500 flex-shrink-0" />
+                <a href="https://www.alaseelah.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-500 hover:text-orange-400 transition-colors duration-150 cursor-pointer">
+                  <GlobeIcon className="w-4 h-4 text-violet-500 flex-shrink-0" />
                   www.alaseelah.com
                 </a>
               </li>
@@ -121,7 +122,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600">
           <p>&copy; {new Date().getFullYear()} Al Aseelah Foodstuff Trading LLC. All rights reserved.</p>
           <p>Al Muqta, Umm Al Quwain, UAE &mdash; Delivery across all Emirates</p>
         </div>

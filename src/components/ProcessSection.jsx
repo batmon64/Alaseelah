@@ -12,31 +12,39 @@ const stepFadeUp = {
 const steps = [
   {
     title: 'Sourcing',
-    desc: 'Direct procurement from certified farms in India, Pakistan, Turkey, and the UAE ensuring premium quality at origin.',
+    desc: 'Direct procurement from certified farms in India, Pakistan, Turkey, Saudi Arabia, and the UAE ensuring premium quality at origin.',
     icon: <SourcingIcon />,
-    color: 'from-blue-600 to-blue-500',
-    ring: 'ring-blue-200',
+    color: 'from-orange-500 to-amber-400',
+    ring: 'ring-orange-400/50',
+    glow: 'shadow-orange-500/40',
+    dot: 'bg-orange-400',
   },
   {
     title: 'Packaging',
     desc: 'Carefully packed in hygienic, food-safe trays and cartons that protect eggs during handling and transport.',
     icon: <PackagingIcon />,
-    color: 'from-sky-600 to-sky-500',
-    ring: 'ring-sky-200',
+    color: 'from-rose-500 to-pink-400',
+    ring: 'ring-rose-400/50',
+    glow: 'shadow-rose-500/40',
+    dot: 'bg-rose-400',
   },
   {
     title: 'Quality Check',
     desc: 'Rigorous inspection at every stage — candling, weight grading, and safety verification before dispatch.',
     icon: <QualityIcon />,
-    color: 'from-indigo-600 to-blue-600',
-    ring: 'ring-indigo-200',
+    color: 'from-emerald-500 to-teal-400',
+    ring: 'ring-emerald-400/50',
+    glow: 'shadow-emerald-500/40',
+    dot: 'bg-emerald-400',
   },
   {
     title: 'Delivery',
     desc: 'Swift, refrigerated delivery to your doorstep across all UAE Emirates — always on time, always fresh.',
     icon: <DeliveryIcon />,
-    color: 'from-cyan-600 to-sky-600',
-    ring: 'ring-cyan-200',
+    color: 'from-cyan-500 to-blue-400',
+    ring: 'ring-cyan-400/50',
+    glow: 'shadow-cyan-500/40',
+    dot: 'bg-cyan-400',
   },
 ]
 
@@ -44,10 +52,17 @@ export default function ProcessSection() {
   return (
     <section
       id="process"
-      className="section-padding relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900"
+      className="section-padding relative overflow-hidden"
+      style={{ background: 'linear-gradient(135deg, #4C1D95 0%, #5B21B6 40%, #1E1B4B 100%)' }}
     >
       {/* BG decoration */}
-      <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #38BDF8 0%, transparent 60%)' }} aria-hidden="true" />
+      <div className="absolute top-0 left-0 w-72 h-72 bg-orange-500/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" aria-hidden="true" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-rose-500/10 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl" aria-hidden="true" />
+      <div
+        className="absolute inset-0 opacity-5"
+        style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #F97316 0%, transparent 60%)' }}
+        aria-hidden="true"
+      />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -57,14 +72,14 @@ export default function ProcessSection() {
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-sky-400 bg-sky-400/10 rounded-full uppercase mb-4 border border-sky-400/20">
+          <span className="inline-block px-3 py-1 text-xs font-bold tracking-widest text-orange-300 bg-orange-500/20 rounded-full uppercase mb-4 border border-orange-400/30">
             Our Process
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 font-outfit">
             From Farm to{' '}
-            <span className="text-gradient">Your Doorstep</span>
+            <span className="text-gradient-warm">Your Doorstep</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-violet-200 text-lg max-w-2xl mx-auto leading-relaxed">
             A seamless, transparent supply chain ensures every egg reaches you fresh,
             safe, and ready to use.
           </p>
@@ -73,7 +88,10 @@ export default function ProcessSection() {
         {/* Pipeline */}
         <div className="relative">
           {/* Connecting line desktop */}
-          <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600/0 via-sky-400/50 to-blue-600/0 mx-32" aria-hidden="true" />
+          <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 mx-32"
+            style={{ background: 'linear-gradient(90deg, transparent, #F97316, #E11D48, #10B981, #06B6D4, transparent)' }}
+            aria-hidden="true"
+          />
 
           <motion.div
             className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
@@ -92,23 +110,23 @@ export default function ProcessSection() {
                 <motion.div
                   whileHover={{ scale: 1.08, rotate: 5 }}
                   transition={{ duration: 0.25 }}
-                  className={`relative w-20 h-20 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center text-white shadow-2xl ring-4 ${step.ring} ring-offset-2 ring-offset-slate-900 mb-6 cursor-default`}
+                  className={`relative w-20 h-20 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center text-white shadow-2xl ${step.glow} ring-4 ${step.ring} ring-offset-2 ring-offset-transparent mb-6 cursor-default`}
                 >
                   {step.icon}
-                  <span className="absolute -top-2 -right-2 w-6 h-6 bg-white text-slate-900 text-xs font-bold rounded-full flex items-center justify-center shadow-lg">
+                  <span className="absolute -top-2 -right-2 w-6 h-6 bg-white text-gray-900 text-xs font-black rounded-full flex items-center justify-center shadow-lg font-outfit">
                     {i + 1}
                   </span>
                 </motion.div>
 
                 {i < steps.length - 1 && (
-                  <div className="lg:hidden w-px h-8 bg-sky-400/30 mb-2" aria-hidden="true" />
+                  <div className="lg:hidden w-px h-8 bg-violet-400/30 mb-2" aria-hidden="true" />
                 )}
 
-                <h3 className="text-white font-bold text-xl mb-3">{step.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed max-w-xs">{step.desc}</p>
+                <h3 className="text-white font-black text-xl mb-3 font-outfit">{step.title}</h3>
+                <p className="text-violet-200 text-sm leading-relaxed max-w-xs">{step.desc}</p>
 
                 <motion.div
-                  className="mt-6 w-2 h-2 rounded-full bg-sky-400"
+                  className={`mt-6 w-2 h-2 rounded-full ${step.dot}`}
                   animate={{ scale: [1, 1.5, 1] }}
                   transition={{ duration: 2, delay: i * 0.3, repeat: Infinity }}
                   aria-hidden="true"
@@ -118,7 +136,7 @@ export default function ProcessSection() {
           </motion.div>
         </div>
 
-        {/* Photo strip — process in action */}
+        {/* Photo strip */}
         <motion.div
           className="mt-14 grid md:grid-cols-2 gap-5"
           initial={{ opacity: 0, y: 40 }}
@@ -132,25 +150,22 @@ export default function ProcessSection() {
               alt: 'Workers in high-visibility vests packaging egg cartons on a warehouse conveyor belt',
               label: 'Packaging & Dispatch',
               sub: 'Modern warehouse operations',
+              overlay: 'from-orange-900/80',
             },
             {
               src: '/Images/Whisk_73054e467cbe56aa5964893a8da2f9bfeg.png',
               alt: 'Al Aseelah delivery person handing a tray of eggs to a smiling store owner',
               label: 'Direct Store Delivery',
               sub: 'Last-mile service to every business',
+              overlay: 'from-violet-900/80',
             },
           ].map((photo) => (
-            <div key={photo.label} className="relative rounded-2xl overflow-hidden shadow-lg shadow-black/30">
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                className="w-full h-60 object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-slate-900/20 to-transparent" />
+            <div key={photo.label} className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/40">
+              <img src={photo.src} alt={photo.alt} className="w-full h-60 object-cover" loading="lazy" />
+              <div className={`absolute inset-0 bg-gradient-to-t ${photo.overlay} via-black/20 to-transparent`} />
               <div className="absolute bottom-4 left-4">
-                <p className="text-white font-bold text-base">{photo.label}</p>
-                <p className="text-slate-300 text-xs mt-0.5">{photo.sub}</p>
+                <p className="text-white font-black text-base font-outfit">{photo.label}</p>
+                <p className="text-white/70 text-xs mt-0.5">{photo.sub}</p>
               </div>
             </div>
           ))}
@@ -168,7 +183,7 @@ export default function ProcessSection() {
             href="https://wa.me/971569454672?text=Hello%2C%20I%27m%20interested%20in%20your%20egg%20supply%20services."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold rounded-2xl shadow-xl shadow-blue-500/30 hover:shadow-blue-500/50 hover:scale-105 transition-all duration-200 cursor-pointer"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-rose-500 text-white font-black rounded-2xl shadow-2xl shadow-orange-500/40 hover:shadow-orange-500/60 hover:scale-105 transition-all duration-200 cursor-pointer font-outfit"
           >
             Start Your Order Today
             <ArrowIcon className="w-5 h-5" />
