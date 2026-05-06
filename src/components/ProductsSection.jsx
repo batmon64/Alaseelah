@@ -80,7 +80,7 @@ const specialtyProducts = [
 
 export default function ProductsSection() {
   return (
-    <section id="products" className="section-padding bg-sky-100">
+    <section id="products" className="section-padding bg-[#F1E0CB]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"

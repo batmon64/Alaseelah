@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply bg-sky-100 text-slate-900 antialiased;
+    @apply bg-[#F1E0CB] text-slate-900 antialiased;
   }
 
   * {

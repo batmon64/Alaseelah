@@ -54,7 +54,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-padding bg-slate-100">
+    <section id="contact" className="section-padding bg-[#F1E0CB]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"

@@ -50,7 +50,7 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="section-padding bg-sky-100">
+    <section id="why-us" className="section-padding bg-[#F1E0CB]">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left — visual card */}
